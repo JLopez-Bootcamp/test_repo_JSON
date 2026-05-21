@@ -1,0 +1,61 @@
+[
+    {
+        "ProductID": 1,
+        "ProductName": "Matte Powder - Translucent",
+        "SupplierID": 201,
+        "QuantityPerUnit": "1 compact",
+        "UnitPrice": 699.00,
+        "UnitsInStock": 120,
+        "UnitsOnOrder": 30,
+        "ReorderLevel": 40,
+        "Discounted": false
+    },
+    {
+        "ProductID": 2,
+        "ProductName": "Matte Powder - Warm Beige",
+        "SupplierID": 202,
+        "CategoryID": 20,
+        "QuantityPerUnit": "1 compact",
+        "UnitPrice": 649.00,
+        "UnitsInStock": 80,
+        "UnitsOnOrder": 10,
+        "ReorderLevel": 25,
+        "Discounted": true
+    },
+    {
+        "ProductID": 3,
+        "ProductName": "Matte Lipstick - Rose",
+        "SupplierID": 203,
+        "CategoryID": 21,
+        "QuantityPerUnit": "1 tube",
+        "UnitPrice": 399.99,
+        "UnitsInStock": 200,
+        "UnitsOnOrder": 50,
+        "ReorderLevel": 60,
+        "Discounted": true
+    },
+    {
+        "ProductID": 4,
+        "ProductName": "Matte Lipstick - Nude",
+        "SupplierID": 204,
+        "CategoryID": 21,
+        "QuantityPerUnit": "1 tube",
+        "UnitPrice": 399.99,
+        "UnitsInStock": 150,
+        "UnitsOnOrder": 20,
+        "ReorderLevel": 40,
+        "Discounted": false
+    },
+    {
+        "ProductID": 5,
+        "ProductName": "Liquid Concealer - Light",
+        "SupplierID": 205,
+        "CategoryID": 22,
+        "QuantityPerUnit": "1 bottle",
+        "UnitPrice": 500.00,
+        "UnitsInStock": 90,
+        "UnitsOnOrder": 15,
+        "ReorderLevel": 30,
+        "Discounted": false
+    }
+]
