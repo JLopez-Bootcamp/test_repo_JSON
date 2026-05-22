@@ -16,37 +16,28 @@
     <Panel id="panel2" headerText="Address Details" class="sapUiResponsiveMargin" width="auto">
         <layout:SimpleForm id="simpleForm2" class="sapUiResponsiveMargin" width="auto">
             <Label id="lbAddress" text="Address"/>
-            <Text id="ipAddress" class="sapUiSmallMarginBottom" text = "{details>/Address/Street} {details>/Address/Zip} {details>/Address/City} {details>/Address/Country}"/>
+            <Text id="txtAddress" class="sapUiSmallMarginBottom" 
+                    text = "{/Address/Street} {/Address/Zip} {/Address/City} {/Address/Country}" />
             <Link id="lnkEmail" text="Send Email" href="{ path: 'details>/Eid', formatter: '.formatter.formatMail'}" />
             <Label id="lbSalesAmount" text="Sales Amount" class="sapUiSmallMarginBegin"/>
-            <Input id="ipSalesAmount" class="sapUiSmallMarginBegin" value="{ parts: [ {path: 'details>/SalesAmount'}, {path: 'details>/CurrencyCode'} ], type: 'sap.ui.model.type.Currency', formatOptions: {showMeasure: false} }" />
+            <Input id="ipSalesAmount" class="sapUiSmallMarginBegin" description="{path: '/CurrencyCode'}" width="50%" value="{ parts: [ 
+                                                                            {path: 'details>/SalesAmount'}, 
+                                                                            {path: 'details>/CurrencyCode'} ], 
+                                                                            type: 'sap.ui.model.type.Currency', 
+                                                                            formatOptions: {showMeasure: false} }" />
         </layout:SimpleForm>
     </Panel>
 
     <Panel id="panel3" headerText="Aggregation Binding" class="sapUiResponsiveMargin" width="auto">
-        <List id="listProducts" class="sapUiSmallMargin" items="{ProductsModel>/}">
-            <ObjectListItem id="oliProduct"
-                            title="{ProductName}" 
-                            
-                            number="{
-                            parts: [
-                                { path: 'UnitPrice' },
-                                { path: 'CurrencyCode' }
-                            ],
-                            type: 'sap.ui.model.type.Currency',
-                            formatOptions: { showMeasure: false }
-                            }"
-
-                            numberUnit="{CurrencyCode}"
-
-                            intro="{QuantityPerUnit}"
-
-                            press="onProductSelect">
-            
+        <List id="listProducts" class="sapUiSmallMargin" items="{ProductsModel>/Products}" mode="SingleSelectMaster" selectionChange="onProductSelect">
+            <ObjectListItem id="oliProduct"  title="{ProductsModel>ProductName}" 
+                            number="{ parts: [ { path: 'ProductsModel>UnitPrice' }, { path: 'ProductsModel>CurrencyCode' } ],
+                            type: 'sap.ui.model.type.Currency', formatOptions: { showMeasure: false } }"
+                            numberUnit="{/CurrencyCode}" >
                             <attributes>
                                 <ObjectAttribute  id="attrStockValue" title="{i18n>currentStockValue}"
                                     text="{
-                                    parts: [
+                                    parts: [ 
                                         { path: 'UnitPrice' },
                                         { path: 'UnitsInStock' },
                                         { path: 'CurrencyCode' }
