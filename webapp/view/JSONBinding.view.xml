@@ -20,32 +20,20 @@
                     text = "{/Address/Street} {/Address/Zip} {/Address/City} {/Address/Country}" />
             <Link id="lnkEmail" text="Send Email" href="{ path: 'details>/Eid', formatter: '.formatter.formatMail'}" />
             <Label id="lbSalesAmount" text="Sales Amount" class="sapUiSmallMarginBegin"/>
-            <Input id="ipSalesAmount" class="sapUiSmallMarginBegin" description="{path: '/CurrencyCode'}" width="50%" value="{ parts: [ 
-                                                                            {path: 'details>/SalesAmount'}, 
-                                                                            {path: 'details>/CurrencyCode'} ], 
-                                                                            type: 'sap.ui.model.type.Currency', 
-                                                                            formatOptions: {showMeasure: false} }" />
+            <Input id="ipSalesAmount" class="sapUiSmallMarginBegin" description="{path: 'details>/CurrencyCode'}" width="45%" 
+                                    value="{ parts: [   {path: 'details>/SalesAmount'}, {path: 'details>/CurrencyCode'} ], 
+                                                        type: 'sap.ui.model.type.Currency', formatOptions: {showMeasure: false} }" />
         </layout:SimpleForm>
     </Panel>
 
     <Panel id="panel3" headerText="Aggregation Binding" class="sapUiResponsiveMargin" width="auto">
         <List id="listProducts" class="sapUiSmallMargin" items="{ProductsModel>/Products}" mode="SingleSelectMaster" selectionChange="onProductSelect">
             <ObjectListItem id="oliProduct"  title="{ProductsModel>ProductName}" 
-                            number="{ parts: [ { path: 'ProductsModel>UnitPrice' }, { path: 'ProductsModel>CurrencyCode' } ],
+                            number="{ parts: [ { path: 'ProductsModel>UnitPrice' }, { path: 'ProductsModel>CurrencyCode' } ], 
                             type: 'sap.ui.model.type.Currency', formatOptions: { showMeasure: false } }"
-                            numberUnit="{/CurrencyCode}" >
-                            <attributes>
-                                <ObjectAttribute  id="attrStockValue" title="{i18n>currentStockValue}"
-                                    text="{
-                                    parts: [ 
-                                        { path: 'UnitPrice' },
-                                        { path: 'UnitsInStock' },
-                                        { path: 'CurrencyCode' }
-                                    ],
-                                    formatter: '.formatter.formatStockValue'
-                                }"
-/>
-                            </attributes>
+                            numberUnit="{ parts: [ { path: 'ProductsModel>CurrencyCode' } ], formatter: '.formatter.formatCurrencyUnit' }" >
+                            <ObjectAttribute id="attrStockOnHand" title="Stock on Hand" text="{ProductsModel>QuantityPerUnit}"/>
+                            <ObjectAttribute id="attrCurrentStockValue" title="Current Stock Value" text="{ parts: [ { path: 'ProductsModel>UnitPrice' }, { path: 'ProductsModel>UnitsInStock' }], formatter: '.formatter.formatStockValue' }"/>
                         </ObjectListItem>
         </List> 
     </Panel>
@@ -53,17 +41,17 @@
     <Panel id="panel4" headerText="Product Details" class="sapUiResponsiveMargin" width="auto">
         <layout:SimpleForm id="simpleForm3" class="sapUiResponsiveMargin" width="auto">
             <Label id="lbProductID" text="Product ID"/>
-            <Input id="ipProductID" value="{details>/ProductID}"/>
+            <Input id="ipProductID" value="{ProductsModel>ProductID}"/>
             <Label id="lbProductName" text="Product Name"/>
-            <Input id="ipProductName" value="{details>/ProductName}"/>
+            <Input id="ipProductName" value="{ProductsModel>ProductName}"/>
             <Label id="lbQuantityPerUnit" text="Quantity Per Unit"/>
-            <Input id="ipQuantityPerUnit" value="{details>/QuantityPerUnit}"/>
+            <Input id="ipQuantityPerUnit" value="{ProductsModel>QuantityPerUnit}"/>
             <Label id="lbUnitPrice" text="Unit Price"/>
-            <Input id="ipUnitPrice" value="{details>/UnitPrice}"/>
+            <Input id="ipUnitPrice" value="{ProductsModel>UnitPrice}"/>
             <Label id="lbUnitsInStock" text="Units in Stock"/>
-            <Input id="ipUnitsInStock" value="{details>/UnitsInStock}"/>
+            <Input id="ipUnitsInStock" value="{ProductsModel>UnitsInStock}"/>
             <Label id="lbDiscontinued" text="Discontinued"/>
-            <Input id="ipDiscontinued" value="{details>/Discontinued}"/>
+            <Input id="ipDiscontinued" value="{ProductsModel>Discontinued}"/>
         </layout:SimpleForm>
     </Panel>
     </Page>
