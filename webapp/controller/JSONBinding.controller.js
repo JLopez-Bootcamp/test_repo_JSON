@@ -14,10 +14,10 @@ sap.ui.define([
                 Eid: "",
                 Enabled: false,
                 Address: {
-                    Street: "",
-                    City: "",
-                    Zip: "",
-                    Country: ""
+                    Street: "Solitaire St",
+                    City: "Cavite",
+                    Zip: "4107",
+                    Country: "PH"
                 },
                 SalesAmount: 0,
                 CurrencyCode: ""

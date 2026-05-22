@@ -1,4 +1,5 @@
-[
+{
+    "Products": [
     {
         "ProductID": 1,
         "ProductName": "Matte Powder - Translucent",
@@ -8,7 +9,8 @@
         "UnitsInStock": 120,
         "UnitsOnOrder": 30,
         "ReorderLevel": 40,
-        "Discounted": false
+        "Discontinued": false,
+        "CurrencyCode": "PHP"
     },
     {
         "ProductID": 2,
@@ -20,7 +22,8 @@
         "UnitsInStock": 80,
         "UnitsOnOrder": 10,
         "ReorderLevel": 25,
-        "Discounted": true
+        "Discontinued": true,
+        "CurrencyCode": "PHP"
     },
     {
         "ProductID": 3,
@@ -32,7 +35,8 @@
         "UnitsInStock": 200,
         "UnitsOnOrder": 50,
         "ReorderLevel": 60,
-        "Discounted": true
+        "Discontinued": true,
+        "CurrencyCode": "PHP"
     },
     {
         "ProductID": 4,
@@ -44,7 +48,8 @@
         "UnitsInStock": 150,
         "UnitsOnOrder": 20,
         "ReorderLevel": 40,
-        "Discounted": false
+        "Discontinued": false,
+        "CurrencyCode": "PHP"
     },
     {
         "ProductID": 5,
@@ -56,6 +61,8 @@
         "UnitsInStock": 90,
         "UnitsOnOrder": 15,
         "ReorderLevel": 30,
-        "Discounted": false
+        "Discontinued": false,
+        "CurrencyCode": "PHP"
     }
-]
+    ]
+}
