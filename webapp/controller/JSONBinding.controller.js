@@ -27,21 +27,15 @@ sap.ui.define([
         },
     
         onProductSelect: function (oEvent) {
-            var oItem = oEvent.getSource();
-            var oContext = oItem.getBindingContext("ProductsModel");
-            if (!oContext) {
-                return;
-            }
-
-            var oSelectedProduct = oContext.getObject();
-            var oDetailsModel = this.getView().getModel("details");
-
-            oDetailsModel.setProperty("/ProductID", oSelectedProduct.ProductID);
-            oDetailsModel.setProperty("/ProductName", oSelectedProduct.ProductName);
-            oDetailsModel.setProperty("/QuantityPerUnit", oSelectedProduct.QuantityPerUnit);
-            oDetailsModel.setProperty("/UnitPrice", oSelectedProduct.UnitPrice);
-            oDetailsModel.setProperty("/UnitsInStock", oSelectedProduct.UnitsInStock);
-            oDetailsModel.setProperty("/Discontinued", oSelectedProduct.Discontinued);
+            var oList = oEvent.getSource();
+            var oSelectedItem = oList.getSelectedItem();
+            var oContext = oSelectedItem.getBindingContext("ProductsModel");
+            var spath = oContext.getPath();
+            var opanel4 = this.getView().byId("panel4");
+            opanel4.bindElement({
+                path: spath,
+                model: "ProductsModel"
+            });
         }
    });
 });
