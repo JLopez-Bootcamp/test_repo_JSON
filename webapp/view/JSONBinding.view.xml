@@ -4,53 +4,53 @@
             xmlns:core="sap.ui.core"
             controllerName="sapips.training.jsonbinding.controller.JSONBinding">
     <Page id="page" title="{i18n>title}">
-    <Panel id="panel1" headerText="Data Binding Basics" class="sapUiMediumMargin" width="auto">
+    <Panel id="panel1" headerText="{i18n>panelDataBinding}" class="sapUiMediumMargin" width="auto">
         <layout:SimpleForm id="simpleForm1" class="sapUiMediumMargin" width="auto" >
-            <Label id="lbEID" text="EID"/>
+            <Label id="lbEID" text="{i18n>lblEID}"/>
             <Input id="ipEID" value="{details>/Eid}"/>
-            <Label id="lbEnabled" text="Enabled"/>
+            <Label id="lbEnabled" text="{i18n>lblEnabled}"/>
             <CheckBox id="cbEnabled" xmlns="sap.m" selected="{details>/Enabled}" />
         </layout:SimpleForm>
     </Panel>
 
-    <Panel id="panel2" headerText="Address Details" class="sapUiResponsiveMargin" width="auto">
+    <Panel id="panel2" headerText="{i18n>panelAddressDetails}" class="sapUiResponsiveMargin" width="auto">
         <layout:SimpleForm id="simpleForm2" class="sapUiResponsiveMargin" width="auto">
-            <Label id="lbAddress" text="Address: " class="sapUiSmallMarginBegin"/>
+            <Label id="lbAddress" text="{i18n>lblAddress}" class="sapUiSmallMarginBegin"/>
             <Text id="txtAddress" class="sapUiSmallMarginBottom sapUiSmallMarginBegin" 
                     text="{details>/Address/Street} {details>/Address/Zip} {details>/Address/City} {details>/Address/Country}" />
-            <Link id="lnkEmail" text="Send Email" href="{ path: 'details>/Eid', formatter: '.formatter.formatMail'}" />
-            <Label id="lbSalesAmount" text="Sales Amount: " class="sapUiSmallMarginBegin"/>
+            <Link id="lnkEmail" text="{i18n>btnSendEmail}" href="{ path: 'details>/Eid', formatter: '.formatter.formatMail'}" />
+            <Label id="lbSalesAmount" text="{i18n>lblSalesAmount}" class="sapUiSmallMarginBegin"/>
             <Input id="ipSalesAmount" class="sapUiSmallMarginBegin" description="{path: 'details>/CurrencyCode'}" width="45%" 
                                     value="{ parts: [   {path: 'details>/SalesAmount'}, {path: 'details>/CurrencyCode'} ], 
                                                         type: 'sap.ui.model.type.Currency', formatOptions: {showMeasure: false} }" />
         </layout:SimpleForm>
     </Panel>
 
-    <Panel id="panel3" headerText="Aggregation Binding" class="sapUiResponsiveMargin" width="auto">
+    <Panel id="panel3" headerText="{i18n>panelAggregation}" class="sapUiResponsiveMargin" width="auto">
         <List id="listProducts" class="sapUiSmallMargin" items="{ProductsModel>/Products}" mode="SingleSelectMaster" selectionChange="onProductSelect">
             <ObjectListItem id="oliProduct"  title="{ProductsModel>ProductName}" 
                             number="{ parts: [ { path: 'ProductsModel>UnitPrice' }, { path: 'ProductsModel>CurrencyCode' } ], 
                             type: 'sap.ui.model.type.Currency', formatOptions: { showMeasure: false } }"
                             numberUnit="{ProductsModel>CurrencyCode}" >
-                            <ObjectAttribute id="attrStockOnHand" title="Stock on Hand" text="{ProductsModel>QuantityPerUnit}"/>
-                            <ObjectAttribute id="attrCurrentStockValue" title="Current Stock Value" text="{ parts: [ { path: 'ProductsModel>UnitPrice' }, { path: 'ProductsModel>UnitsInStock' }], formatter: '.formatter.formatStockValue' }"/>
+                            <ObjectAttribute id="attrStockOnHand" title="{i18n>lblStockOnHand}" text="{ProductsModel>QuantityPerUnit}"/>
+                            <ObjectAttribute id="attrCurrentStockValue" title="{i18n>currentStockValue}" text="{ parts: [ { path: 'ProductsModel>UnitPrice' }, { path: 'ProductsModel>UnitsInStock' }], formatter: '.formatter.formatStockValue' }"/>
                         </ObjectListItem>
         </List> 
     </Panel>
 
-    <Panel id="panel4" headerText="Product Details" class="sapUiResponsiveMargin" width="auto">
+    <Panel id="panel4" headerText="{i18n>panelProductDetails}" class="sapUiResponsiveMargin" width="auto">
         <layout:SimpleForm id="simpleForm3" class="sapUiResponsiveMargin" width="auto">
-            <Label id="lbProductID" text="Product ID"/>
+            <Label id="lbProductID" text="{i18n>lblProductID}"/>
             <Input id="ipProductID" value="{ProductsModel>ProductID}"/>
-            <Label id="lbProductName" text="Product Name"/>
+            <Label id="lbProductName" text="{i18n>lblProductName}"/>
             <Input id="ipProductName" value="{ProductsModel>ProductName}"/>
-            <Label id="lbQuantityPerUnit" text="Quantity Per Unit"/>
+            <Label id="lbQuantityPerUnit" text="{i18n>lblQuantityPerUnit}"/>
             <Input id="ipQuantityPerUnit" value="{ProductsModel>QuantityPerUnit}"/>
-            <Label id="lbUnitPrice" text="Unit Price"/>
+            <Label id="lbUnitPrice" text="{i18n>lblUnitPrice}"/>
             <Input id="ipUnitPrice" value="{ProductsModel>UnitPrice}"/>
-            <Label id="lbUnitsInStock" text="Units in Stock"/>
+            <Label id="lbUnitsInStock" text="{i18n>lblUnitsInStock}"/>
             <Input id="ipUnitsInStock" value="{ProductsModel>UnitsInStock}"/>
-            <Label id="lbDiscontinued" text="Discontinued"/>
+            <Label id="lbDiscontinued" text="{i18n>lblDiscontinued}"/>
             <Input id="ipDiscontinued" value="{ProductsModel>Discontinued}"/>
         </layout:SimpleForm>
     </Panel>
